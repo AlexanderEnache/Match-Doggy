@@ -23,6 +23,10 @@ export default class AddDog extends Component {
 		e.preventDefault();
 		const dog = {
 			name: e.target.name.value
+			// ,user: {
+			// 	username: ,
+			// 	password:
+			// }
 		}
 		axios.post('http://localhost:5000/dogs/add', dog).then(res => console.log(res.data));
 		// window.location = '/';

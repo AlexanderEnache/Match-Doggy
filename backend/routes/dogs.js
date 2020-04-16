@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Dog = require('../models/dog.model');
+let Dog = require('../models/model');
 
 router.route('/').get((req, res) => {
     Dog.find().then(
@@ -10,8 +10,7 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const name = req.body.name;
-
-    const newDog = new Dog({name});
+    const newDog = new Dog({name, });
 
     newDog.save().then(() => {
         res.json('Dog added!');

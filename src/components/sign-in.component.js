@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import auth from "../auth";
-import axios from 'axios';
 
 export default class SignIn extends Component {
 
@@ -28,30 +26,10 @@ export default class SignIn extends Component {
 		});
 	}
 
-	onSubmit(e) {
-		e.preventDefault();
-		console.log("Stuff");
-		const user = {
-			username: e.target.username.value,
-			password: e.target.password.value
-		}
-		console.log("Stuff 2");
-		axios.post('http://localhost:5000/users/sign-in', user).then(res => {
-			console.log("Stuff 3");
-            alert("Your username or password is incorrect");
-			if(Object.keys(res.data).length){
-				//window.location = '/';
-				auth.login();
-			}else{
-				alert("Your username or password is incorrect");
-			}
-		});
-	}
-
 	render() {
 		return (
 			<div id="sign-in" className="text-center" data-gr-c-s-loaded="true">
-				<form onSubmit={this.onSubmit} className="form-signin">
+				<form onSubmit={this.props.login} className="form-signin">
 					<img className="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
 					<h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 					<label htmlFor="inputEmail" className="sr-only">Email address</label>

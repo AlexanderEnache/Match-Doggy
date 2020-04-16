@@ -3,9 +3,8 @@ class Auth {
         this.authenticated = false;
     }
 
-    login(cb){
+    login(){
         this.authenticated = true;
-        cb();
         console.log("Logged In");
     }
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+let User = require('./model');
 
 const Schema = mongoose.Schema;
 
@@ -9,12 +10,7 @@ const dogSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    // user: {
-    //     type: Object,
-    //     required: true,
-    //     trim: true,
-    //     minlength: 3
-    // }
+    user: [userSchema]
 }, {
     timestamps: true,
 });
